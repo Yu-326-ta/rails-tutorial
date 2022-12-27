@@ -1,37 +1,11 @@
-require "test_helper"
+ENV["RAILS_ENV"] ||= "test"
+require_relative "../config/environment"
+require "rails/test_help"
 
-class StaticPagesControllerTest < ActionDispatch::IntegrationTest
+class ActiveSupport::TestCase
+  # Run tests in parallel with specified workers
+  parallelize(workers: :number_of_processors)
 
-  def setup
-    @base_title = "Ruby on Rails Tutorial Sample App"
-  end
-
-  test "should get root" do
-    get root_path
-    assert_response :success
-  end
-
-  test "should get home" do
-    get root_path
-    assert_response :success
-    assert_select "title", "#{@base_title}"
-  end
-
-  test "should get help" do
-    get help_path
-    assert_response :success
-    assert_select "title", "Help | #{@base_title}"
-  end
-
-  test "should get about" do
-    get about_path
-    assert_response :success
-    assert_select "title", "About | #{@base_title}"
-  end
-
-  test "should get contact" do
-    get contact_path
-    assert_response :success
-    assert_select "title", "Contact | #{@base_title}"
-  end
+  include ApplicationHelper
+  # Add more helper methods to be used by all tests here...
 end
