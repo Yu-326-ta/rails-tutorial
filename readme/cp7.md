@@ -27,3 +27,17 @@ end
 <%= f.text_field :name %>
 ```
 ↑これはUserモデルのname属性を設定する、ラベル付きテキストフィールド要素を作成するのに必要なHTMLを作成している。  
+
+* .empty?メソッド（空だとtrueを返す）、.any?（空でなければtrueを返す）は配列に対対してもそのまま使える  
+
+* assert_no_differenceメソッドはブロックを実行する前後で引数が変化しないことを検証する  
+```
+assert_no_difference 'User.count' do
+  post users_path, params: { user: { name:  "",
+                                     email: "user@invalid",
+                                     password:              "foo",
+                                     password_confirmation: "bar" } }
+end
+```
+無効なユーザーデータを登録してもユーザー数が変化しないことを検証している  
+
