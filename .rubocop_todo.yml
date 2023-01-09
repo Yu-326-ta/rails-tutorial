@@ -199,4 +199,4 @@ Style/SymbolArray:
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, AllowedPatterns, IgnoredPatterns.
 # URISchemes: http, https
 Layout/LineLength:
-  Max: 198
+  Max: 120
