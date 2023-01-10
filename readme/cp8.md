@@ -43,3 +43,11 @@ end
 
 * Importmap.rbでプロジェクトのカスタムJavaScriptコードどこにあるのかをRailsに認識させる設定を行い、application.jsにimportしてjsを適用する  
 
+* トグルとは同じ操作や処理によって二つの状態が交互に切り替わるような仕組みのこと  
+
+* fixture（フィクスチャ）
+テストに必要なデータをtestデータベースに読み込んでおくことができる(test/fixture/users.yaml内に記述して設定)  
+
+* `obj && obj.method` のようなパターンを` obj&.method` のように凝縮した形で書ける
+`user && user.authenticate(params[:session][:password])`と`user&.authenticate(params[:session][:password])`は同義  
+
