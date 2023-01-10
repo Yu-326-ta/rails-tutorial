@@ -41,3 +41,5 @@ end
 
 * `@current_user = @current_user || User.find_by(id: session[:user_id])` と`@current_user ||= User.find_by(id: session[:user_id])`も同義  
 
+* Importmap.rbでプロジェクトのカスタムJavaScriptコードどこにあるのかをRailsに認識させる設定を行い、application.jsにimportしてjsを適用する  
+
