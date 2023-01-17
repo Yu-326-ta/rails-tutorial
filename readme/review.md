@@ -30,4 +30,13 @@ has_secure_password
 * rails console --sandboxもrails c -sのエイリアスが使用可能（どんなエイリアスがあるか一回調べて目を通す）  
 
 * 本来バリデーションはmigrationファイルでかけてしまう（`t.string :email`ではなく`t.string :email, null: false`など）  
-てことはモデルでバリデーションをかける必要がない？？  
+てことはモデルでバリデーションをかける必要がない？？→結論、両方でかける  
+
+* privateメソッドでメソッドを定義するときは、インデントをprivate行に揃える   
+```
+private
+
+def user_params
+  params.require(:user).permit(:name, :email, :password, :password_confirmation)
+end
+```
