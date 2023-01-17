@@ -40,3 +40,7 @@ def user_params
   params.require(:user).permit(:name, :email, :password, :password_confirmation)
 end
 ```
+
+* インデントは４文字じゃなくて２文字にする！  
+
+* class定義の後の空行はいらない  
