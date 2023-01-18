@@ -44,3 +44,17 @@ end
 * インデントは４文字じゃなくて２文字にする！  
 
 * class定義の後の空行はいらない  
+
+* クラスメソッドの定義方法は、クラス名ではなくselfを使用  
+```
+-  def User.new_token
++  def self.new_token
+```
+ただし定義するときに限る（したのUserをselfにするとテストでエラーが起きる）  
+```
+def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+    remember_digest
+end
+```
