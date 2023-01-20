@@ -64,3 +64,9 @@ end
 -  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
 +  before_action :logged_in_user, only: %i[index edit update destroy]
 ```
+
+* 現在の時刻を取得するときは`Time.zone.new`ではなく`Time.current`メソッドの方がよく使われる  
+```
+-  update_columns(activated: true, activated_at: Time.zone.now)
++  update_columns(activated: true, activated_at: Time.current)
+```
