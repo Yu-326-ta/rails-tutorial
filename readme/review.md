@@ -58,3 +58,9 @@ def remember
     remember_digest
 end
 ```
+
+* シンボルや文字の配列は%記法を用いる  
+```
+-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
++  before_action :logged_in_user, only: %i[index edit update destroy]
+```
