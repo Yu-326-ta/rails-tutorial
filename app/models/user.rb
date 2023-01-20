@@ -32,9 +32,9 @@ class User < ApplicationRecord
 
     # 渡されたトークンがダイジェストと一致したらtrueを返す
     def authenticated?(attribute, token)
-        digest = send("#{attribute}_digest")
-        return false if digest.nil?
-        BCrypt::Password.new(digest).is_password?(token)
+      digest = send("#{attribute}_digest")
+      return false if digest.nil?
+      BCrypt::Password.new(digest).is_password?(token)
     end
 
     # ユーザーのログイン情報を破棄する
@@ -50,7 +50,7 @@ class User < ApplicationRecord
 
     # アカウントを有効にする
     def activate
-        update_columns(activated: true, activated_at: Time.zone.now)
+      update_columns(activated: true, activated_at: Time.zone.now)
     end
 
     # 有効化用のメールを送信する
