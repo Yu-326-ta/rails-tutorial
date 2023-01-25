@@ -1,5 +1,8 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+
   attr_accessor :remember_token, :activation_token, :reset_token
+  
   before_save   :downcase_email
   before_create :create_activation_digest
     
@@ -76,7 +79,13 @@ class User < ApplicationRecord
 
   private
 
- # メールアドレスをすべて小文字にする
+  # 試作feedの定義
+  # 完全な実装は次章の「ユーザーをフォローする」を参照
+  def feed
+    Micropost.where(user_id: id)
+  end
+
+  # メールアドレスをすべて小文字にする
   def downcase_email
     self.email.downcase!
   end
